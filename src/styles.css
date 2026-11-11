@@ -1,0 +1,456 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/fraunces/opsz.css';
+@import '@fontsource-variable/fraunces/opsz-italic.css';
+@import '@fontsource-variable/manrope/wght.css';
+
+/* ── FotoJoe design tokens (see DESIGN.md) ─────────────────────────── */
+@theme {
+  --color-ink: #121110;
+  --color-ink-deep: #0b0a09;
+  --color-ink-raised: #1a1816;
+  --color-paper: #f4efe7;
+  --color-mist: #b7afa2;
+  --color-brass: #c2a059;
+  --color-brass-light: #d9c08a;
+  --color-line: #2e2a25;
+  --color-line-strong: #4a443b;
+
+  --font-display: 'Fraunces Variable', 'Playfair Display', Georgia, serif;
+  --font-sans: 'Manrope Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ── Base ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    background: var(--color-ink);
+    color-scheme: dark;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-brass);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 4px;
+    border-radius: 2px;
+  }
+  img,
+  video,
+  canvas {
+    display: block;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-weight: 380;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    font-optical-sizing: auto;
+  }
+}
+
+/* ── Shared pieces ─────────────────────────────────────────────────── */
+@layer components {
+  .wrap {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .wrap {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 650;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-brass);
+  }
+
+  .display-xl {
+    font-size: clamp(3.1rem, 9.2vw, 9.5rem);
+    line-height: 0.92;
+  }
+  .display-lg {
+    font-size: clamp(2.6rem, 6.4vw, 6.4rem);
+    line-height: 0.96;
+  }
+  .display-md {
+    font-size: clamp(2.1rem, 4.2vw, 4rem);
+    line-height: 1;
+  }
+  .lede {
+    font-size: clamp(1.08rem, 1.35vw, 1.3rem);
+    line-height: 1.6;
+    color: var(--color-mist);
+  }
+  .rule {
+    height: 1px;
+    background: var(--color-line);
+    border: 0;
+  }
+
+  /* The one button style: gold pill, dark text, rolling label */
+  .btn {
+    --h: 3.25rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: var(--h);
+    padding-inline: 1.6rem 0.45rem;
+    border-radius: 999px;
+    background: var(--color-brass);
+    color: var(--color-ink);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    isolation: isolate;
+    overflow: hidden;
+    transition: background-color 0.3s var(--ease-soft);
+  }
+  .btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--color-brass-light);
+    transform: translateY(101%);
+    transition: transform 0.45s var(--ease-expo);
+  }
+  .btn:hover::before,
+  .btn:focus-visible::before {
+    transform: translateY(0);
+  }
+  .btn-label {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 1.2em;
+    line-height: 1.2em;
+  }
+  .btn-label > span {
+    display: block;
+    transition: transform 0.45s var(--ease-expo);
+  }
+  .btn:hover .btn-label > span,
+  .btn:focus-visible .btn-label > span {
+    transform: translateY(-100%);
+  }
+  .btn-dot {
+    display: grid;
+    place-items: center;
+    width: calc(var(--h) - 0.9rem);
+    height: calc(var(--h) - 0.9rem);
+    border-radius: 999px;
+    background: var(--color-ink);
+    color: var(--color-brass);
+    transition: transform 0.45s var(--ease-expo);
+  }
+  .btn:hover .btn-dot,
+  .btn:focus-visible .btn-dot {
+    transform: rotate(-45deg) scale(1.06);
+  }
+  .btn-sm {
+    --h: 2.75rem;
+    padding-inline: 1.15rem 0.35rem;
+    font-size: 0.72rem;
+  }
+
+  /* The one link style: drawn underline */
+  .link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-paper);
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    transition:
+      background-size 0.5s var(--ease-expo),
+      color 0.3s;
+    padding-bottom: 2px;
+  }
+  .link:hover,
+  .link:focus-visible,
+  .link[aria-current='page'] {
+    background-size: 100% 1px;
+    background-position: 0 100%;
+  }
+  .link-brass {
+    color: var(--color-brass);
+  }
+
+  .skip-link {
+    position: fixed;
+    left: 1rem;
+    top: -4rem;
+    z-index: 200;
+    padding: 0.75rem 1rem;
+    background: var(--color-brass);
+    color: var(--color-ink);
+    font-weight: 700;
+    border-radius: 6px;
+  }
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  /* Contact-sheet crop marks around a photo */
+  .crop-marks {
+    position: relative;
+  }
+  .crop-marks::before,
+  .crop-marks::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--color-line-strong);
+    pointer-events: none;
+  }
+  .crop-marks::before {
+    top: -8px;
+    left: -8px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+  .crop-marks::after {
+    bottom: -8px;
+    right: -8px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .field label {
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mist);
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-line-strong);
+    border-radius: 0;
+    color: var(--color-paper);
+    font: inherit;
+    font-size: 1.05rem;
+    transition: border-color 0.3s;
+  }
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23C2A059' stroke-width='1.6'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.25rem center;
+    padding-right: 1.5rem;
+  }
+  .field select option {
+    background: var(--color-ink-raised);
+    color: var(--color-paper);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: #8b8478;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--color-brass);
+  }
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    box-shadow: 0 1px 0 0 var(--color-brass);
+  }
+  .field input[aria-invalid='true'],
+  .field select[aria-invalid='true'],
+  .field textarea[aria-invalid='true'] {
+    border-bottom-color: #e58a6f;
+  }
+  .field input[type='date']::-webkit-calendar-picker-indicator {
+    filter: invert(0.8) sepia(1) saturate(2) hue-rotate(5deg);
+  }
+  .field-error {
+    font-size: 0.85rem;
+    color: #f0a38c;
+  }
+}
+
+/* ── Smooth scroll (Lenis) ─────────────────────────────────────────── */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ── First paint while the app starts ─────────────────────────────── */
+.intro-cover {
+  display: none;
+}
+html.intro .intro-cover {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--color-ink-deep);
+}
+html.intro,
+html.intro-playing {
+  overflow: hidden;
+}
+html.intro [data-logo],
+html.intro-playing [data-logo],
+html.intro [data-intro-item],
+html.intro-playing [data-intro-item] {
+  opacity: 0;
+}
+/* Elements that animate in start hidden only when animations will run */
+html.js [data-split] {
+  visibility: hidden;
+}
+html.js [data-reveal] {
+  clip-path: inset(100% 0 0 0);
+}
+
+/* SplitText line masks */
+.split-line {
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+/* Film grain: a still, very faint texture for an analogue print feel */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+@keyframes scrollcue {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* First-screen entrances run in CSS, so they start the moment the page paints —
+   no waiting for JavaScript. While the signature intro plays they hold, then rise. */
+@keyframes rise {
+  from {
+    transform: translateY(0.5em);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+@keyframes print-in {
+  from {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+[data-rise] {
+  animation: rise 1.1s var(--ease-expo) both;
+  animation-delay: var(--d, 0.1s);
+}
+[data-print-in] {
+  animation: print-in 1.5s var(--ease-expo) both;
+  animation-delay: var(--d, 0s);
+}
+html.intro [data-rise],
+html.intro-hold [data-rise],
+html.intro [data-print-in],
+html.intro-hold [data-print-in] {
+  animation-play-state: paused;
+}
+
+/* While the intro loads: a single gold point, breathing */
+html.intro .intro-cover::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: var(--color-brass-light);
+  box-shadow: 0 0 18px 6px rgba(217, 192, 138, 0.45);
+  animation: breathe 1.4s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}

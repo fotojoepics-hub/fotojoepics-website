@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#121110" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Runs before anything paints.
+      //  js       -> animations will run, so elements that animate in start hidden
+      //  intro    -> first visit to the homepage this session: hold a black screen for the signature intro
+      // Safety: if the app has not started after a few seconds, everything is shown as-is.
+      (function () {
+        try {
+          var d = document.documentElement;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          d.classList.add('js');
+          var hashMode = '%MODE%' === 'artifact';
+          var home = hashMode
+            ? !location.hash || location.hash === '#/' || location.hash === '#'
+            : location.pathname === '/' || location.pathname === '/index.html';
+          var seen = false;
+          try { seen = sessionStorage.getItem('fj-intro') === '1'; } catch (e) {}
+          if (home && !seen) d.classList.add('intro');
+          window.__fjSafety = setTimeout(function () {
+            d.classList.remove('intro', 'js');
+          }, 5000);
+        } catch (e) {}
+      })();
+    </script>
+    <!--app-head-->
+  </head>
+  <body>
+    <div class="intro-cover" aria-hidden="true"></div>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
