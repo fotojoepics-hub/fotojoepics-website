@@ -1,0 +1,268 @@
+{
+  "backyard-cookout-table": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#342c2b"
+  },
+  "banquet-couple-royal-blue": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#2f2424"
+  },
+  "banquet-hall-black-gold-tables": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#4e4a3e"
+  },
+  "birthday-cakes-carried-in": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#3d2926"
+  },
+  "cookout-card-game-deck": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#272e25"
+  },
+  "couple-black-sequin-wall-gold-balloons": {
+    "w": 667,
+    "h": 1000,
+    "widths": [
+      480,
+      667
+    ],
+    "color": "#231f1a"
+  },
+  "couple-embrace-birthday-party": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#544f50"
+  },
+  "couple-kiss-black-gold-drapes": {
+    "w": 667,
+    "h": 1000,
+    "widths": [
+      480,
+      667
+    ],
+    "color": "#171617"
+  },
+  "dance-floor-birthday-celebration": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#53473c"
+  },
+  "elders-leather-sofa-family-birthday": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#413029"
+  },
+  "family-christmas-tree-gathering": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#473d39"
+  },
+  "friends-denim-jacket-birthday": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#363636"
+  },
+  "friends-smiling-sofa-birthday": {
+    "w": 1600,
+    "h": 1067,
+    "widths": [
+      480,
+      800,
+      1200,
+      1600
+    ],
+    "color": "#554445"
+  },
+  "friends-white-green-suits-birthday": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#495352"
+  },
+  "gentlemen-suits-banquet": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#3a1c08"
+  },
+  "gentlemen-tuxedos-banquet": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#2f2017"
+  },
+  "grandfather-birthday-cake-table": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#46261a"
+  },
+  "guest-laughing-45th-birthday": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#4a4746"
+  },
+  "guest-of-honor-cream-suit-portrait": {
+    "w": 667,
+    "h": 1000,
+    "widths": [
+      480,
+      667
+    ],
+    "color": "#59473c"
+  },
+  "guest-of-honor-head-table": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#685842"
+  },
+  "guests-dancing-birthday-hall": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#342820"
+  },
+  "headshot-grey-jacket-arms-crossed": {
+    "w": 1067,
+    "h": 1600,
+    "widths": [
+      480,
+      800,
+      1067
+    ],
+    "color": "#67625c"
+  },
+  "headshot-grey-jacket-close": {
+    "w": 667,
+    "h": 1000,
+    "widths": [
+      480,
+      667
+    ],
+    "color": "#433e3a"
+  },
+  "headshot-grey-jacket-smile": {
+    "w": 667,
+    "h": 1000,
+    "widths": [
+      480,
+      667
+    ],
+    "color": "#4c4944"
+  },
+  "portrait-pink-boa-painted-backdrop": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#3f3e50"
+  },
+  "reception-room-gold-chairs-candelabras": {
+    "w": 1000,
+    "h": 667,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#40403c"
+  },
+  "reception-room-hero": {
+    "w": 1000,
+    "h": 487,
+    "widths": [
+      480,
+      800,
+      1000
+    ],
+    "color": "#34332e"
+  }
+}
