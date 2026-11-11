@@ -81,13 +81,22 @@ function Shell() {
 
   return (
     <>
-      <a href="#main" className="skip-link">
+      <a
+        href="#main"
+        className="skip-link"
+        onClick={(e) => {
+          e.preventDefault();
+          const main = document.getElementById('main');
+          main?.focus();
+          main?.scrollIntoView();
+        }}
+      >
         Skip to content
       </a>
       <Header />
       <Intro />
       <ViewCursor />
-      <main id="main">
+      <main id="main" tabIndex={-1} className="outline-none">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/portfolio" component={Portfolio} />
